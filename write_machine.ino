@@ -39,9 +39,14 @@ void loop()
   if (flag == false)
   {
     draw(100, 0);
-    moveAt(0, PI_2 / 8, "right");
+    moveAt(0, PI_2 / 4, "left");
+    draw(100, 0);
     delay(500);
-    moveAt(0, PI_2 / 4, "right");
+    moveAt(0, PI_2 / 2, "left");
+    draw(100, 0);
+    delay(500);
+    moveAt(0, PI_2 - PI_2 / 4, "left");
+    draw(100, 0);
     delay(500);
   }
 
@@ -200,12 +205,16 @@ void moveAt(int x, int y, String direction)
 {
   getDifference(x, y, direction);
   movePos(x_diff, y_diff);
+  currentPos[0] = x;
+  currentPos[1] = y;
 }
 
 void drawAt(int x, int y, String direction)
 {
   getDifference(x, y, direction);
   draw(x_diff, y_diff);
+  currentPos[0] = x;
+  currentPos[1] = y;
 }
 
 int getDifference(int x, int y, String direction)
@@ -258,6 +267,7 @@ int getDifference(int x, int y, String direction)
     {
       if (currentPos[1] < y)
       {
+        Serial.print("hi");
         ytarget = -PI_2 - currentPos[1] + y;
       }
       if (currentPos[1] > y)
