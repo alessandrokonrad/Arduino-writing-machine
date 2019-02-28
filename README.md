@@ -37,7 +37,7 @@ Functions:
 
 * getDifference(int radius, int angle, String direction) -> updates x_diff and y_diff by the difference of the currentPos,                                                               targetPos and the direction, so either clockwise or counter                                                                   clockwise
 
-* isRotated() -> checks if angle >= 2 PI
+* isRotated() -> checks if angle >= 2 Pi
 
 
 ![result](https://user-images.githubusercontent.com/35738310/53573731-65b03980-3b6e-11e9-8122-18a4bcb3e57e.jpg)
