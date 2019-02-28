@@ -34,7 +34,6 @@ void setup()
 /* using flag to just run once through the loop */
 boolean flag = false;
 
-int t = 42 + 10 + 42 + 10;
 void loop()
 {
   if (flag == false)
@@ -209,7 +208,7 @@ int getDifference(int x, int y, String direction)
 {
   /* 
     right => rotates clockwise
-    left == true  => rotated counter clockwise 
+    left  => rotated counter clockwise 
   */
 
   int xtarget = x - currentPos[0];
@@ -239,7 +238,6 @@ int getDifference(int x, int y, String direction)
       }
     }
 
-    //////////////////////////
     if (currentPos[1] > 0)
     {
       if (currentPos[1] < x)
@@ -286,7 +284,6 @@ int getDifference(int x, int y, String direction)
       }
     }
 
-    //////////////////////////
     if (currentPos[1] > 0)
     {
       if (currentPos[1] < x)
