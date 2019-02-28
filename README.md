@@ -1,10 +1,10 @@
-## Arduino Writing Machine
+# Arduino Writing Machine
 
 ![writing_machine](https://user-images.githubusercontent.com/35738310/53573718-5d57fe80-3b6e-11e9-8174-7d2ab71b477f.jpg)
 
 The following project is a CNC machine with a polar coordinate system build on an Arduino.
 
-# Components
+## Components
 
 * Arduino UNO R3 - The Most Complete Starter Kit
 * 1 DVD - Player
@@ -12,7 +12,7 @@ The following project is a CNC machine with a polar coordinate system build on a
 * Tape and some screws
 * Some wood
 
-# How it works
+## How it works
 
 I am using the stepper motor and the servo motor of the Arduino Kit and the stepper motor of the DVD player.
 The DVD stepper motor controls the radius and the the Arduino stepper motor the angle (polar coordinates).
