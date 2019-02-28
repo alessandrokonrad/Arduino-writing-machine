@@ -38,11 +38,15 @@ void loop()
 {
   if (flag == false)
   {
-    print("HELLO WORLD", 50);
+    draw(100, 0);
+    moveAt(0, PI_2 / 8, "right");
+    delay(500);
+    moveAt(0, PI_2 / 4, "right");
+    delay(500);
   }
 
   /* move home */
-  moveAt(0, 0, "left");
+  moveAt(0, 0, "right");
 
   /* checks if stepper motor already rotated 2 PI */
   isRotated();
@@ -208,7 +212,7 @@ int getDifference(int x, int y, String direction)
 {
   /* 
     right => rotates clockwise
-    left  => rotated counter clockwise 
+    left == true  => rotated counter clockwise 
   */
 
   int xtarget = x - currentPos[0];
@@ -217,42 +221,54 @@ int getDifference(int x, int y, String direction)
   {
     if (currentPos[1] == 0)
     {
-      ytarget = -y;
+      if (y < 0)
+      {
+        ytarget = y;
+      }
+      else if (y > 0)
+      {
+        ytarget = -PI_2 + y;
+      }
+      else
+      {
+        ytarget = 0;
+      }
     }
     if (currentPos[1] < 0)
     {
-      if (currentPos[1] < x)
+      if (currentPos[1] < y)
       {
-        if (x < 0)
+        if (y < 0)
         {
-          ytarget = -PI_2 - currentPos[1] + x;
+          ytarget = -PI_2 - currentPos[1] + y;
         }
         else
         {
-          ytarget = -PI_2 - currentPos[1] + x;
+          ytarget = -PI_2 - currentPos[1] + y;
         }
       }
-      if (currentPos[1] > x)
+      if (currentPos[1] > y)
       {
-        ytarget = -abs(abs(x) - abs(currentPos[1]));
+        ytarget = -abs(abs(y) - abs(currentPos[1]));
       }
     }
 
+    //////////////////////////
     if (currentPos[1] > 0)
     {
-      if (currentPos[1] < x)
+      if (currentPos[1] < y)
       {
-        ytarget = -PI_2 - currentPos[1] + x;
+        ytarget = -PI_2 - currentPos[1] + y;
       }
-      if (currentPos[1] > x)
+      if (currentPos[1] > y)
       {
-        if (x < 0)
+        if (y < 0)
         {
-          ytarget = -(currentPos[1] - x);
+          ytarget = -(currentPos[1] - y);
         }
         else
         {
-          ytarget = -abs(x - currentPos[1]);
+          ytarget = -abs(y - currentPos[1]);
         }
       }
     }
@@ -263,42 +279,54 @@ int getDifference(int x, int y, String direction)
   {
     if (currentPos[1] == 0)
     {
-      ytarget = y;
+      if (y < 0)
+      {
+        ytarget = PI_2 + y;
+      }
+      else if (y > 0)
+      {
+        ytarget = y;
+      }
+      else
+      {
+        ytarget = 0;
+      }
     }
     if (currentPos[1] < 0)
     {
-      if (currentPos[1] < x)
+      if (currentPos[1] < y)
       {
-        if (x < 0)
+        if (y < 0)
         {
-          ytarget = abs(x - currentPos[1]);
+          ytarget = abs(y - currentPos[1]);
         }
         else
         {
-          ytarget = abs(currentPos[1]) + x;
+          ytarget = abs(currentPos[1]) + y;
         }
       }
-      if (currentPos[1] > x)
+      if (currentPos[1] > y)
       {
-        ytarget = PI_2 - currentPos[1] + x;
+        ytarget = PI_2 - currentPos[1] + y;
       }
     }
 
+    //////////////////////////
     if (currentPos[1] > 0)
     {
-      if (currentPos[1] < x)
+      if (currentPos[1] < y)
       {
-        ytarget = abs(x - currentPos[1]);
+        ytarget = abs(y - currentPos[1]);
       }
-      if (currentPos[1] > x)
+      if (currentPos[1] > y)
       {
-        if (x < 0)
+        if (y < 0)
         {
-          ytarget = PI_2 - currentPos[1] + x;
+          ytarget = PI_2 - currentPos[1] + y;
         }
         else
         {
-          ytarget = PI_2 - currentPos[1] + x;
+          ytarget = PI_2 - currentPos[1] + y;
         }
       }
     }
